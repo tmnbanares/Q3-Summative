@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>One Time Password </title>
+		<meta charset="UTF-8">
+		<meta name="keywords" content="HTML, CSS, JavaScript">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+		<style>
+        	body 
+			{
+				background: lightblue; 
+            	text-align: center;
+            	font-family: arial;
+                color: navy;
+           	}
+
+           	button 
+			{
+				padding: 10px; background:violet 
+			}
+
+            a
+			{
+				font-size: 0.5em; color: maroon
+			}
+        	</style>
+	</head>
+
+	<body onload="display()">
+		<h1> Final Verification Step </h1>
+		<h2> Current OTP: <span id="otp"> _ _ _ _ _ _ </span> <a href="#" onclick="b()"> New OTP </a></h2>
+    	<button onclick="checking()"> Enter the OTP as shown above </button>
+    
+    		<script>
+			/*This function will generate a random 6 digit number as OTP*/
+			function display() {
+				var random = (Math.floor(100000 + Math.random()*900000));
+  				document.getElementById("otp").innerHTML = random;
+			}
+
+			function b() {
+				display();
+			}
+
+			/*This function will prompt the user to enter the generated OTP*/
+			function checking() {
+  				let  userOTP = prompt("Enter the OTP as shown above");
+				let enteredOTP = document.getElementById("otp").innerHTML;
+				
+  			/*These lines of code will check if the user has entered the correct OTP or not*/
+				if (userOTP === enteredOTP) {
+    					window.open("https://youtu.be/oDH2TJ9F5Eg");
+  				} 
+
+				else {
+    					alert("Your entered OTP does not match. Please try again");
+    					b();
+  				}
+			}
+    		</script>
+	</body>
+</html>
