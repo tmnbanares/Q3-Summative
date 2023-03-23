@@ -37,20 +37,19 @@
 		<button onclick="enterCar()"> Enter your Car information </button>
 		
     <script>
-	    /* This function prompts the user to input all the details needed to acquire the car's cmv and then assigns the html ids to their respective variables*/
-    	function enterCar() {
-            carmodel = prompt("Enter Car Model");
+    	function enterCar() {     /* This function prompts the user to input all the details needed to acquire the car's cmv and then assigns the html ids to their respective variables*/
+        	carmodel = prompt("Enter Car Model");
             carcost = prompt("Enter Cost of the Car");
             carage = prompt("How old is your car?");
-	    model.innerHTML = carmodel;
+            good = confirm("In Good Condition? Ok for Yes / Cancel for No");
+            model.innerHTML = carmodel;
             cost.innerHTML = carcost;
             age.innerHTML = carage;
-            good = confirm("In Good Condition? Ok for Yes / Cancel for No");
             condition.innerHTML = (good) ? "Yes" : "No";      
             currentvalue.innerHTML = computerMarketValue(parseFloat(cost),parseFloat(age),good);
         }
 		
-		function computerMarketValue(cost,age,good) {
+		function computerMarketValue(cost,age,good) {        /* This function is used to apply the conditions */
 			var cmv;
 			
 			if (age > 10) {
@@ -65,7 +64,6 @@
 			else if (age < 5){
 				cmv = cost*.5;
 		}
-		
 			if(!good){
 				cmv *= .9;
 		}
