@@ -39,13 +39,13 @@
     <script>
 	    /* This function prompts the user to input all the details needed to acquire the car's cmv */
     	function enterCar() {
+	    model.innerHTML = carmodel;
+            cost.innerHTML = carcost;
+            age.innerHTML = carage;
             carmodel = prompt("Enter Car Model");
             carcost = prompt("Enter Cost of the Car");
             carage = prompt("How old is your car?");
             good = confirm("In Good Condition? Ok for Yes / Cancel for No");
-            model.innerHTML = carmodel;
-            cost.innerHTML = carcost;
-            age.innerHTML = carage;
             condition.innerHTML = (good) ? "Yes" : "No";      
             currentvalue.innerHTML = computerMarketValue(parseFloat(cost),parseFloat(age),good);
         }
